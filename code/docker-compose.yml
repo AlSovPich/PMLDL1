@@ -1,0 +1,28 @@
+services:
+  api-service:
+    build:
+      context: ./deployment/api 
+      dockerfile: Dockerfile
+    container_name: penguins-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../models:/models
+    networks:
+      - penguins-net
+
+  web-service:
+    build:
+      context: ./deployment/app
+      dockerfile: Dockerfile
+    container_name: penguins-web
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api-service
+    networks:
+      - penguins-net
+
+networks:
+  penguins-net:
+    driver: bridge
