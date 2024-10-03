@@ -17,4 +17,4 @@ Structure of repository is following:
 │   └── penguins.csv #Dataset  
 └── models  
     ├── label_encoder.pkl #Saved label_encoder to convert from csv text to numerical data  
-      └── penguins_model.pkl #Saved model  
+    └── penguins_model.pkl #Saved model  
